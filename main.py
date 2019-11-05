@@ -4,4 +4,4 @@ from tkinter import ttk
 import numpy as np 
 
 if __name__ == '__main__':
-	print('blablablablablabla')
+	print('blublublublublublublu')
