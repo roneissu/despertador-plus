@@ -1,2 +1,9 @@
+from tkinter import *
+import os
+
+
 class Transito:
-    pass
+    
+
+    def __init__(self):
+    	pass
