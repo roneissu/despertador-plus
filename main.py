@@ -4,6 +4,6 @@ from views import time
 
 if __name__ == '__main__':
     root = Tk()
-    root.title('Despertador plus')
+    root.title('Despertador Plus')
     root.minsize(time.test(), 600)
     root.mainloop()
