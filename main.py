@@ -1,9 +1,13 @@
-from tkinter import Tk, Text
-from views import time
+from tkinter import *
+from views.master import *
 
 
 if __name__ == '__main__':
     root = Tk()
-    root.title('Despertador Plus')
-    root.minsize(time.test(), 600)
+    mainView = Master(root, "Despertador Plus")
+
+    root.minsize(800, 600)
+
+    mainView.pack(fill='both', expand=1)
+
     root.mainloop()

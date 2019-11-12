@@ -1,0 +1,2 @@
+class Previsao:
+    pass
