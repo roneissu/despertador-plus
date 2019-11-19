@@ -1,13 +1,12 @@
-from tkinter import *
-from views.master import *
+from tkinter import Tk
+from views.master import Master
 
 
 if __name__ == '__main__':
     root = Tk()
-    mainView = Master(root, "Despertador Plus")
+    root.attributes('-fullscreen', True)
 
-    root.minsize(800, 600)
-
-    mainView.pack(fill='both', expand=1)
+    main_view = Master(root, "Despertador Plus", bg="#fbfbfb")
+    main_view.pack()
 
     root.mainloop()
