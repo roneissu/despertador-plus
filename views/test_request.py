@@ -19,7 +19,7 @@ import requests
 import pprint
 
 api_address='http://api.openweathermap.org/data/2.5/forecast?appid=0c42f7f6b53b244c78a418f4f181282a&q='
-city = 'Belo Horizonte'
+city = 'Belo Horizonte,br'
 url = api_address + city + '&units=metric'
 json_data = requests.get(url).json()
 # format_add = json_data['base']
@@ -28,33 +28,39 @@ json_data = requests.get(url).json()
 dados = json_data['list'][0]
 dataold = dados['dt_txt'].split()[0]
 
+print(dataold)
+
 dias = []
 infodia = {}
-cnt = 0
-temp = 0
-tempmin = 0
-tempmax = 0
-
+cnt = 1
+temp = dados['main']['temp']
+tempmin = dados['main']['temp_min']
+tempmax = dados['main']['temp_max']
+clima = [dados['weather'][0]['description']]
 
 for i in json_data['list'][1:]:
 	datanew = i['dt_txt'].split()[0]
 	if datanew !=  dataold:
 		infodia['dia'] = dataold
+		infodia['num'] = cnt
 		infodia['temp'] = round(temp/max(cnt, 1), 2)
 		infodia['temp_min'] = round(tempmin/max(cnt, 1), 2)
 		infodia['temp_max'] = round(tempmax/max(cnt, 1), 2)
+		infodia['climas'] = clima
 		dias.append(infodia)
 		infodia = {}
 		temp = 0
 		tempmin = 0
 		tempmax = 0
 		cnt = 0
+		clima = []
 		dataold = datanew
 
 	cnt+=1
 	temp += i['main']['temp']
 	tempmin += i['main']['temp_min']
 	tempmax += i['main']['temp_max']
+	clima.append(i['weather'][0]['description'])
 
 
 infodia['dia'] = dataold
@@ -70,7 +76,7 @@ cnt = 0
 
 
 
-
+# pprint.pprint(json_data)
 pprint.pprint(dias)
 
 # for key in json_data:
