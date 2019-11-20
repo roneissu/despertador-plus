@@ -34,7 +34,7 @@ class Ambiente(Frame):
 		
 	def updateTemp(self):
 		add = (np.random.rand()-0.5)*2
-		print(add)
+		# print(add)
 		newtemp = add+self.oldtemp
 		self.oldtemp = newtemp
 		self.LabelTemp.configure(text = f'{newtemp:.2f}°C')
