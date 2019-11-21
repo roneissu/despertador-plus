@@ -140,6 +140,23 @@ class Previsao(Frame):
 			'hora' 		: f'{dados.tm_hour}:{str(dados.tm_min).zfill(2)}'
 		}
 
-		# pp.pprint(returns)
+		pp.pprint(returns)
 
 		return returns
+
+
+
+class prevSingle(Frame):
+
+
+	def __init__(self, master = None, bg = 'light blue', forecast = None, **kargs):
+		self.master = master
+		self.color = color
+		super().__init__(master, bg = bg, **kargs)
+		self.forecast = forecast
+
+
+
+	def genFrame(self):
+		self.icon = Canvas(self, )
+

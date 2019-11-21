@@ -30,7 +30,7 @@ class Ambiente(Frame):
 		self.LabelTemp.grid(column = 1, row = 0, columnspan = 1, sticky = 'nsew')
 		
 		self.oldtemp = 25.0
-		self.after(1000, self.updateTemp)
+		th.Thread(target = lambda :self.after(1000, self.updateTemp)).start()
 		
 	def updateTemp(self):
 		add = (np.random.rand()-0.5)*2
