@@ -8,7 +8,8 @@ class Relogio(Frame):
         self.hora['text'] = strftime('%H:')
         self.minuto['text'] = strftime('%M')
         # self.segundo['text'] = strftime('%S')
-        self.segundoBar.place(rely=(0.35-datetime.now().second/240), relheight=(datetime.now().second/240))
+        self.segundoBar.place(
+            rely=(0.35-datetime.now().second/240), relheight=(datetime.now().second/240))
 
         self.after(500, self.troca)
 
