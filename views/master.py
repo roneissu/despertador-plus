@@ -1,5 +1,6 @@
 from tkinter import *
 import views.ambiente as am 
+import views.previsao as pr
 
 class Master(Frame):
 
@@ -8,6 +9,10 @@ class Master(Frame):
         super().__init__(master, **kargs)
         self.master.title(title)
         self.amb = am.Ambiente(self, bd = 5, relief = "sunken")
-        self.amb.grid(row=0, column=0, columnspan=2, sticky="NSWE", padx=5, pady=5)
-       	self.columnconfigure(0, weight = 1)
+        self.amb.grid(row=2, column=2, columnspan=2, sticky="NSWE", padx=5, pady=5)
+       	self.columnconfigure(2, weight = 1)
+
+       	self.prev = pr.Previsao(self, bd = 5, relief = "sunken")
+       	self.prev.grid(row = 1, column = 1, rowspan = 2, sticky = 'nswe', padx = 5, pady = 5)
+       	self.rowconfigure(1, weight = 1)
         # self.amb.pack(fill = 'both', expand = 1)
