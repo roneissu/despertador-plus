@@ -4,10 +4,11 @@ from views.master import Master
 
 if __name__ == '__main__':
     root = Tk()
-    root.attributes('-fullscreen', True)
+    # root.attributes('-fullscreen', True)
+    root.minsize(1280, 720)
 
     main_view = Master(root, "Despertador Plus",
-                       bg="#fbfbfb", bd=2, relief='raised')
-    main_view.pack()
+                       bg="#fbfbfb")
+    main_view.pack(fill="both", expand=1)
 
     root.mainloop()
