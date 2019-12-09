@@ -32,26 +32,34 @@ class Previsao(Frame):
 			self.getPrev()
 			pp.pprint(self.previsao[3])
 			self.convData(self.previsao[3])
-
-			self.cards = []
-
-			for i in self.previsao:
-				self.cards.append(prevSingle(self, bg = self.color, forecast = i, bd = 4, relief = 'raised'))
-
-			# maxw = max(self.cards, key = lambda x : x.card.winfo_width())
-			
-			for i in self.cards:
-				# i.configure(width = maxw)
-				i.pack()
-
-
-
+			self.makeCards()
 
 		except Exception as e:
 			# Colocar tela de "sem conexão"
 			print(e)
 			pass
 
+
+	def makeCards(self):
+
+		self.cards = []
+
+		for i in self.previsao:
+			self.cards.append(prevSingle(self, bg = self.color, forecast = i, bd = 4, relief = 'raised'))
+
+		# maxw = max(self.cards, key = lambda x : x.card.winfo_width())
+		n = 0
+		for i in self.cards:
+			# i.configure(width = maxw)
+			i.grid(row = n, pady = (5, 0), sticky="NSWE")
+			n+=1
+
+		# print(self.grid_size())
+
+		for i in range(self.grid_size()[1]):
+			self.rowconfigure(i, weight = 1)
+		self.columnconfigure(0, weight = 1)
+		
 
 	def getPrev(self):
 
@@ -180,7 +188,8 @@ class prevSingle(Frame):
 
 		self.card = Frame(self, bg = self.color)
 
-		icon = Canvas(self.card, width = 50, height = 50, bd = 4, relief = 'sunken')
+		# icon = Canvas(self.card, width = 50, height = 50, bd = 4, relief = 'sunken')
+		icon = Canvas(self.card, width = 50, height = 50)
 		icon.grid(column = 0, row = 0, rowspan = 4)
 
 		clima = Label(self.card, text = self.forecast['clima'], width = 25, font = self.font, bg = self.color, anchor = 'center')
@@ -195,12 +204,15 @@ class prevSingle(Frame):
 		tempmin = Label(self.card, text = str(self.forecast['temp_min'])+'°C', font = self.fontbig, bg = self.color, anchor = 'center')
 		tempmin.grid(column = 2, row = 3, rowspan = 2, sticky = 'nswe')
 
-		self.card.pack()
+
+		print(self.card.grid_size())
+		for i in range(self.card.grid_size()[1]):
+			self.card.rowconfigure(i, weight = 1)
+
+		for i in range(self.card.grid_size()[0]):
+			self.card.columnconfigure(i, weight = 1)
+
+
+		self.card.pack(fill = 'both', expand = 1)
 
 		
-
-
-
-
-
-
