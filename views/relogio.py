@@ -13,30 +13,31 @@ class Relogio(Frame):
 
         self.after(500, self.troca)
 
-    def __init__(self, master=None, bg=""):
+    def __init__(self, master=None, **kwargs):
         self.master = master
-        super().__init__(master)
+        super().__init__(master, kwargs)
 
-        self.posX = 0.01
-        self.posY = 0.105
+        # self.posX = 0.01
+        # self.posY = 0.105
 
-        self.hora = Label()
-        self.hora.place(relx=self.posX, rely=self.posY)
-        self.hora['font'] = 'Helvita 140 bold'
-        self.hora.config(bg=bg, highlightthickness=0, borderwidth=0)
+        # self.hora = Label(self)
+        # self.hora.grid(row=0, column=0)
+        # self.hora.place(relx=self.posX, rely=self.posY)
+        # self.hora['font'] = 'Helvita 140 bold'
+        # self.hora.config(bg=bg, highlightthickness=0, borderwidth=0)
 
-        self.minuto = Label()
-        self.minuto.place(relx=self.posX+0.25, rely=self.posY)
-        self.minuto['font'] = 'Helvita 140'
-        self.minuto.config(bg=bg, highlightthickness=0, borderwidth=0)
+        # self.minuto = Label()
+        # self.minuto.place(relx=self.posX+0.25, rely=self.posY)
+        # self.minuto['font'] = 'Helvita 140'
+        # self.minuto.config(bg=bg, highlightthickness=0, borderwidth=0)
 
-        # self.segundo = Label()
-        # self.segundo.place(relx=self.posX+0.43, rely=self.posY+0.16)
-        # self.segundo['font'] = 'Helvita 40'
-        # self.segundo.config(bg=bg, highlightthickness=0, borderwidth=0)
+        # # self.segundo = Label()
+        # # self.segundo.place(relx=self.posX+0.43, rely=self.posY+0.16)
+        # # self.segundo['font'] = 'Helvita 40'
+        # # self.segundo.config(bg=bg, highlightthickness=0, borderwidth=0)
 
-        self.segundoBar = Label()
-        self.segundoBar.place(relx=self.posX+0.45, relwidth=0.02)
-        self.segundoBar.config(bg="#606060")
+        # self.segundoBar = Label()
+        # self.segundoBar.place(relx=self.posX+0.45, relwidth=0.02)
+        # self.segundoBar.config(bg="#606060")
 
-        self.troca()
+        # self.troca()
