@@ -11,7 +11,7 @@ class Master(Frame):
         super().__init__(master, kargs)
         self.master.title(title)
 
-        self.relogio = Relogio(self, bg="blue")
+        self.relogio = Relogio(self)
         self.relogio.grid(row=0, column=0, columnspan=3, rowspan=2, sticky="NSWE")
 
         self.foto = Frame(self, bg="black")
@@ -30,11 +30,7 @@ class Master(Frame):
         # self.amb.config(bg=bg)
         # self.amb.pack(fill = 'both', expand = 1)
 
-        for i in range(5):
+        for i in [0,1,2,3,4]:
             self.columnconfigure(i, weight=1)
-        for i in range(6):
+        for i in [0,1,2,3,4,5]:
             self.rowconfigure(i, weight=1)
-        # self.columnconfigure(0, weight=1)
-        # self.columnconfigure(2, weight=1)
-        # self.rowconfigure(0, weight=1)
-        # self.rowconfigure(1, weight=1)
