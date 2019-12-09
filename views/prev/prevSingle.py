@@ -11,11 +11,16 @@ class PrevisaoCard(Frame):
 
         self.card = Frame(self, bg=self.color)
 
-        icon = Canvas(self.card, width=50, height=50, bd=4, relief='sunken')
-        icon.grid(column=0, row=0, rowspan=4)
+        datalab = self.master.convData(self.forecast)
+        # print(self.forecast)
 
-        clima = Label(self.card, text=self.forecast['clima'],
-                      width=25, font=self.font, bg=self.color, anchor='center')
+        data = Label(self.card, text = datalab['data'], width=20, font=self.font, bg=self.color, anchor='center')
+        data.grid(column = 0, row = 0, rowspan = 4)
+
+        # icon = Canvas(self.card, width=50, height=50, bd=4, relief='sunken')
+        # icon.grid(column=0, row=1, rowspan=4)
+
+        clima = Label(self.card, text=self.forecast['clima'], width=20, font=self.font, bg=self.color, anchor='center')
         clima.grid(column=0, row=4, sticky='nswe')
 
         temp = Label(self.card, text=str(
