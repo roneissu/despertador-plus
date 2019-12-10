@@ -9,19 +9,21 @@ font = ("Calibri", 12, 'bold')
 class Ambiente(Frame):
 
     def criaTemp(self):
-
         self.LabelTexto = Label(
-            self, text='Temperatura ambiente: ', font=font, bg=self.color)
-        self.LabelTemp = Label(self, text='0°C', font=font, bg=self.color)
-        self.LabelTemp.config(anchor='center')
+            self, text='Temperatura ambiente: ', font=font, bg=self.color, fg="white")
+        self.LabelTexto['font'] = 'Helvita 14'
+        self.LabelTexto.grid(column=0, row=0, columnspan=2, sticky="NSWE")
 
-        self.LabelTexto.grid(column=0, row=0, columnspan=1, sticky='nsew')
-        self.LabelTemp.grid(column=1, row=0, columnspan=1, sticky='nsew')
+        self.LabelTemp = Label(
+            self, text='00.00°C', font=font, bg=self.color, fg="white")
+        self.LabelTemp['font'] = 'Helvita 22 bold'
+        self.LabelTemp.grid(column=2, row=0, columnspan=1, sticky="NSWE")
+
         self.oldtemp = 25.0
 
-        for i in range(self.grid_size()[0])[0:]:
-            self.columnconfigure(i, weight=1)
-
+        self.rowconfigure(0, weight=1)
+        self.columnconfigure(2, weight=1)
+        
         self.after(1000, self.updateTemp)
 
     def updateTemp(self):
@@ -32,11 +34,10 @@ class Ambiente(Frame):
         self.LabelTemp.configure(text=f'{newtemp:.2f}°C')
         self.after(1000, self.updateTemp)
 
-    def __init__(self, master=None, bg='light blue', **kargs):
-
+    def __init__(self, master=None, bg="black", **kwargs):
         self.master = master
         self.color = bg
-
-        super().__init__(master, bg=self.color, **kargs)
+        super().__init__(master, kwargs, bg=self.color)
         # self.__dummy__criabuts()
+
         self.criaTemp()
