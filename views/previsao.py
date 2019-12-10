@@ -8,7 +8,6 @@ from views.prev.prevSingle import PrevisaoCard
 
 
 class Previsao(Frame):
-
     font = ('Calibri', 12, 'bold')
 
     city = 'Belo Horizonte'
@@ -17,6 +16,7 @@ class Previsao(Frame):
 
     previs_url = previs_addr + city + '&units=metric&lang=pt'
     dia_url = dia_addr + city + '&units=metric&lang=pt'
+
 
     def getPrev(self):
 
@@ -76,6 +76,7 @@ class Previsao(Frame):
         self.previsao = dias
         # pp.pprint(self.previsao)
 
+
     def getDia(self):
 
         dados_dia = requests.get(self.dia_url).json()
@@ -88,6 +89,7 @@ class Previsao(Frame):
             'temp_max' 		: dados_dia['main']['temp_max'],
             'clima' 		: dados_dia['weather'][0]['description']
         }
+
 
     def convData(self, struct):
 
@@ -119,8 +121,8 @@ class Previsao(Frame):
 
         return returns
 
-    def __init__(self, master=None, bg='light blue', **kargs):
 
+    def __init__(self, master=None, bg="black", **kargs):
         self.master = master
         self.color = bg
         super().__init__(master, bg=bg, **kargs)
@@ -134,8 +136,7 @@ class Previsao(Frame):
             self.cards = []
 
             for i in self.previsao:
-                self.cards.append(PrevisaoCard(self, bg=self.color,
-                                               forecast=i, bd=4, relief='raised'))
+                self.cards.append(PrevisaoCard(self, bg=self.color, forecast=i))
 
             # maxw = max(self.cards, key = lambda x : x.card.winfo_width())
 

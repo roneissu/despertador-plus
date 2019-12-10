@@ -12,17 +12,18 @@ class Ambiente(Frame):
         self.LabelTexto = Label(
             self, text='Temperatura ambiente: ', font=font, bg=self.color, fg="white")
         self.LabelTexto['font'] = 'Helvita 14'
-        self.LabelTexto.grid(column=0, row=0, columnspan=2, sticky="NSWE")
+        self.LabelTexto.grid(column=1, row=0, columnspan=2, sticky="NSWE")
 
         self.LabelTemp = Label(
             self, text='00.00°C', font=font, bg=self.color, fg="white")
         self.LabelTemp['font'] = 'Helvita 22 bold'
-        self.LabelTemp.grid(column=2, row=0, columnspan=1, sticky="NSWE")
+        self.LabelTemp.grid(column=3, row=0, columnspan=1, sticky="NSWE")
 
         self.oldtemp = 25.0
 
         self.rowconfigure(0, weight=1)
-        self.columnconfigure(2, weight=1)
+        self.columnconfigure(0, weight=1)
+        self.columnconfigure(3, weight=1)
         
         self.after(1000, self.updateTemp)
 

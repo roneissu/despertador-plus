@@ -14,17 +14,15 @@ class Master(Frame):
         self.relogio = Relogio(self, bg="black")
         self.relogio.grid(row=0, column=0, columnspan=3, rowspan=2, sticky="NSWE")
 
-        self.foto = Frame(self, bg="black")
+        self.foto = Frame(self, bg="red")
         self.foto.grid(row=2, column=0, columnspan=3, rowspan=4, sticky="NSWE")
 
-        # self.prev = Previsao(self, bg="blue")
-        self.prev = Frame(self, bg="black")
+        self.prev = Previsao(self, bg="black")
         self.prev.grid(row=0, column=3, columnspan=2, rowspan=5, sticky="NSWE")
         # self.prev.place(relx=0.5, rely=0)
         # self.prev.config(bg=bg)
 
         self.amb = Ambiente(self, bg="black")
-        # self.amb = Frame(self, bg="green")
         self.amb.grid(row=5, column=3, columnspan=2, sticky="NSWE")
         # self.amb.place(relx=0, rely=0.5)
         # self.amb.config(bg=bg)
