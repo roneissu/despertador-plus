@@ -28,11 +28,11 @@ class PrevisaoCard(Frame):
         temp.grid(column=1, row=0, rowspan=5, sticky='nswe')
 
         tempmax = Label(self.card, text=str(
-            self.forecast['temp_max'])+'°C', font=self.fontbig, bg=self.color, anchor='center')
+            self.forecast['temp_max'])+'°C', font=self.fontbig, bg=self.color, anchor='center', fg='red')
         tempmax.grid(column=2, row=0, rowspan=2, sticky='nswe')
 
         tempmin = Label(self.card, text=str(
-            self.forecast['temp_min'])+'°C', font=self.fontbig, bg=self.color, anchor='center')
+            self.forecast['temp_min'])+'°C', font=self.fontbig, bg=self.color, anchor='center', fg='blue')
         tempmin.grid(column=2, row=3, rowspan=2, sticky='nswe')
 
         self.card.pack()
